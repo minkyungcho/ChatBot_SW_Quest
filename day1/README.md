@@ -217,6 +217,130 @@
 - break
 - continue
 
+#### 튜플
+
+- 순서가 있음
+
+- ( ) 기호를 사용하거나 생략
+
+  ```python
+  items = ("ruler", "pen", "eraser")
+  nums = 1,2,3
+  ```
+
+- 각 슬롯에 저장된 값을 재할당 불가
+
+- 문자열이나 리스트 등을 튜플로 변환 : tuple()
+
+  ```python
+  tup1 = tuple("python")
+  print(tup1) # ('p','y','t','h','o','n')
+  tup2 = tuple([1,2,3])
+  print(tup2) # (1,2,3)
+  ```
+
+- 인덱스로 각 원소에 접근
+
+- 패킹/언패킹
+
+#### 딕셔너리
+
+- Key/ Value 형태의 자료구조
+
+- Key 값으로 Value를 조회 가능
+
+- 리스트와 혼합 된 형태로 사용 가능
+
+- { } 기호를 사용하여 생성
+
+  ```python
+  alien = {'color':'green', 'points':5}
+  print(alien['color']) # green
+  print(alien['points']) # 5
+  ```
+
+- 딕셔너리 항목 제거
+
+  ```python
+  alien = {'color':'green', 'points':5}
+  del alien['points']
+  print(alien) # {'color':'green'}
+  c = alien.pop('color')
+  print(c) # green
+  print(alien) # {}
+  ```
+
+- 딕셔너리 key/value 접근
+
+  ```python
+  alien = {'color':'green', 'points':5}
+  alien_keys = list(alien.keys())
+  print(alien_keys) # ['color', 'points']
+  alien_values = list(alien.values())
+  print(alien_values) # ['green', 5]
+  ```
+
+- 딕셔너리 looping
+
+  ```python
+  thisdict = {
+  	"brand": "Ford",
+  	"model" : "Mustang",
+  	"year" : 1964
+  }
+  print(thisdict) # {"brand": "Ford", "model": "Mustang", "year": 1964}
+  # key 정보 출력
+  for x in thisdict:
+      print(x) # brand model year
+  # value 정보 출력
+  for x in thisdict:
+      print(thisdict(x)) # Ford Mustang 1964
+  for x in thisdict.values():
+      print(x) # Ford Mustang 1964
+  # key, value 정보 출력
+  for x,y in thisdict.items():
+      print(x,y) # brand Ford  model Mustang  year 1964
+  ```
+
+#### 함수
+
+- 이름이 붙여진 코드의 블록
+- 특정한 태스크를 반복 수행 가능
+- 입력과 출력이 존재
+  - 입력 - 파라미터
+  - 출력 - 리턴값
+- 다른 코드에서 사용 될 수 있음 : 함수 호출
+
+- 함수의 선언과 호출, 파라미터 사용
+
+  ```python
+  def greet_user(username):
+  	print("Hello, " + username + "!")
+  greet_user('Jone') # Hello, Jone!
+  ```
+
+- 가변인자 : 임의의 개수의 인자를 넘기기
+
+  ```python
+  def make_pizza(*toppings):
+  	for topping in toppings:
+  		print("- "+topping)
+  make_pizza('mushroom', 'green peppers', 'extra cheese')
+  /*
+  - mushroom
+  - green peppers
+  - extra cheese
+  */
+  ```
+
+  
+
+## 데이터 크롤링
+
+#### 크롤링 기술이란?
+
+- 프로그래밍 언어를 통해 인터넷에서 우리에게 필요한 정보를 빠르고 정확하게 수집할 수 있는 방법
+
 
 
 
