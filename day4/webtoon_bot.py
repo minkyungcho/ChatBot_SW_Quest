@@ -88,7 +88,8 @@ def results():
     print(req)
     print("----------------------------------")
     queryText = req.get('queryResult').get('outputContexts')
-    output = queryText[0].get('parameters')
+    # output = queryText[0].get('parameters')
+    output = queryText[1].get('parameters')
     day = output.get('day_of_week')
     genres = output.get('dgenre')
     # print(site)
@@ -96,20 +97,25 @@ def results():
     print(genres)
 
     print("#### CRAWLNG ####")
+    webtoon_url = 'http://webtoon.daum.net/data/pc/webtoon/view/'
     data = daum_toon(day)
     webtoons = data[day]
     webtoon_list = []
-    ttt = []
+    title_list = []
+    nickname_list = []
     for webtoon in webtoons:
         webtoon_title = list(webtoon.keys())
         for value in webtoon.values():
+
             for l in value["genres"]:
                 if genres in l:
                     tmp = {
                         "title": webtoon_title,
                         # "genres_list": value["genres"]
                     }
-                    ttt.append(webtoon_title)
+                    print(value['nickname'])
+                    title_list.append(webtoon_title)
+                    nickname_list.append(webtoon_title)
                     webtoon_list.append(tmp)
     print(webtoon_list)
 
@@ -119,10 +125,19 @@ def results():
             "quickReplies": {
                 "title": "웹툰 목록",
                 "quickReplies": [
-                    ttt[0], ttt[1], ttt[2]
+                    webtoon_url+str(nickname_list[0]), webtoon_url+str(nickname_list[1]), webtoon_url+str(nickname_list[2])
                 ]
             }
         }],
+            #
+        # 'fulfillmentMessages': [{
+        #     "quickReplies": {
+        #         "title": "웹툰 목록",
+        #         "quickReplies": [
+        #             title_list[0], title_list[1], title_list[2]
+        #         ]
+        #     }
+        # }],
         'data': {
             'day': day,
             'genres': genres
